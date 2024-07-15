@@ -216,12 +216,9 @@ if selected=='STATUS PREDICTION':
                         x_cls = np.array(data_cls).reshape(1,-1)
                         scaling_model_cls = scaled_data_cls.transform(x_cls)
                         pred_status = trained_model_cls.predict(scaling_model_cls)
-
-                        st.success(f'**Predicted Selling Price : :gold[{pred_status}]**')
-                        
-                        #if pred_status < 6:
-                        #    st.success(f'**Predicted Status : :green[WON]**')
-                        #else :
-                        #    st.error(f'**Predicted Status : :red[LOST]**')
+                        if pred_status < 6:
+                            st.success(f'**Predicted Status : :green[WON]**')
+                        else :
+                            st.error(f'**Predicted Status : :red[LOST]**')
         except:
             print("Please a enter a valid value")
